@@ -5,6 +5,8 @@ import SignUp from "./components/signup";
 import Reset from "./components/reset";
 import Verify from "./components/verify";
 import Success from "./components/success";
+import Verify2 from "./components/verify2";
+import { createBrowserRouter, Outlet } from "react-router-dom";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -12,12 +14,29 @@ function App() {
     <>
       {/* <h1 className='bg-orange-500'>Heli</h1> */}
 
+      <Outlet />
       {/* <SignIn /> */}
-      <SignUp />
+      {/* <SignUp /> */}
       {/* <Verify /> */}
       {/* <Success /> */}
+      {/* < Verify2 /> */}
     </>
   );
 }
+
+export const heli = createBrowserRouter([
+  {
+    path: "/",
+    element: <SignIn />,
+  },
+  {
+    path: "/signup",
+    element: <SignUp />,
+  },
+  {
+    path: "/verify",
+    element: <Verify />,
+  },
+]);
 
 export default App;

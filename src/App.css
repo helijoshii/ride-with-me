@@ -38,3 +38,11 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
+.otp-group div {
+  box-shadow: none !important;
+}
+
+.otp-active {
+  @apply border-pink-400 border-2;
+}

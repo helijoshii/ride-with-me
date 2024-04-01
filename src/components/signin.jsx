@@ -1,8 +1,34 @@
 import React from "react";
 import sc from "../assets/scooter.svg";
 import { Phone } from "../icons";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function SignIn() {
+  const [mobile, setMobile] = React.useState("");
+  const navigate = useNavigate();
+  async function handleSignIn() {
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/api/v1/user/send-login-otp",
+        { mobile },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      // Handle response if needed
+      console.log("Response:", response.data);
+      if (response.data.status === "success") {
+        navigate("/SignIn");
+      }
+    } catch (error) {
+      // Handle error
+      console.error("Error:", error);
+    }
+  }
+
   return (
     <>
       <div id="container" className=" bg-white w-fit mx-auto">
@@ -22,13 +48,9 @@ function SignIn() {
               type="number"
               className="border w-80 h-11 rounded-lg pl-10 py-3"
               placeholder="Mobile"
+              value={mobile}
+              onChange={(e) => setMobile(e.target.value)}
             />
-            {/* <Password className="w-4 h-4 absolute left-11 top-[367px]" />
-            <input
-              type="password"
-              className="border w-80 h-11 rounded-lg  pl-10 py-3"
-              placeholder="Password"
-            /> */}
           </div>
         </div>
 

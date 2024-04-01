@@ -38,12 +38,11 @@ const SignUp = () => {
               placeholder="Email"
             />
           </div>
-        </form>
-        <div id="verify" className="font-Poppins mt-10">
-          <button className="w-[362px] h-12 rounded-xl p-2 text-white bg-[#FF6C96] font-semibold text-sm leading-5 mt-6">
-            Verify mobile number
-          </button>
+          <div id="verify" className="font-Poppins mt-10">
+          <input type="submit" className="w-[362px] h-12 rounded-xl p-2 text-white bg-[#FF6C96] font-semibold text-sm leading-5 mt-6" value="Verify mobile number"/>         
         </div>
+        </form>
+        
 
         <div className="mt-[250px] font-Poppins px-11 ">
           <p className="font-normal text-sm leading-5 text-[#A2A2A2]">
