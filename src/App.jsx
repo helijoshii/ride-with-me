@@ -1,12 +1,10 @@
 import { useState } from "react";
+import { createBrowserRouter, Outlet } from "react-router-dom";
 import "./App.css";
 import SignIn from "./components/signin";
 import SignUp from "./components/signup";
-import Reset from "./components/reset";
 import Verify from "./components/verify";
 import Success from "./components/success";
-import Verify2 from "./components/verify2";
-import { createBrowserRouter, Outlet } from "react-router-dom";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -36,6 +34,10 @@ export const heli = createBrowserRouter([
   {
     path: "/verify",
     element: <Verify />,
+  },
+  {
+    path: "/success",
+    element: <Success />,
   },
 ]);
 

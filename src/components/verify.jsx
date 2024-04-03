@@ -2,14 +2,45 @@ import React from "react";
 import {
   InputOTP,
   InputOTPGroup,
-  InputOTPSeparator,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Verify = () => {
-  const [value, setValue] = React.useState("");
+  const [otp, setotp] = React.useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  const phoneNumber = location.state;
+
+  const handleOtp = async () => {
+    console.log(phoneNumber, otp);
+    try {
+      const response = await axios.post(
+        ` http://13.126.70.159/api/v1/user/verify-otp`,
+        { phoneNumber, otp },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      // Handle response if needed
+      console.log("Response:", response);
+      if (response.data.success == false) {
+        // navigate("/SignIn", { state: phoneNumber });
+        alert("Invalid OTP");
+      }
+      if (response.data.success == true) {
+        // navigate("/SignIn", { state: phoneNumber });
+
+        navigate("/success");
+      }
+    } catch (error) {
+      // Handle error
+      console.error("Error:", error);
+    }
+  };
 
   return (
     <div className="mt-16 mx-4 font-Poppins ">
@@ -20,36 +51,7 @@ const Verify = () => {
         </p>
       </div>
       <div className="flex flex-row h-[72px] gap-4 justify-center">
-        {/* <input
-          type="number"
-          className="border w-[70px] flex justify-between  font-Poppins font-normal text-5xl leading-[72px] rounded-lg px-2 py-0 border-[#9E9E9E]"
-          name=""
-          id=""
-        />
-        <input
-          type="number"
-          className="border w-[70px] font-Poppins font-normal text-5xl leading-[72px] rounded-lg px-2 py-0 border-[#9E9E9E]"
-          name=""
-          id=""
-        />
-        <input
-          type="number"
-          className="border w-[70px] font-Poppins font-normal text-5xl leading-[72px] rounded-lg px-2 py-0 border-[#9E9E9E]"
-          name=""
-          id=""
-        />
-        <input
-          type="number"
-          className="border w-[70px] font-Poppins font-normal text-5xl leading-[72px] rounded-lg px-2 py-0 border-[#9E9E9E]"
-          name=""
-          id=""
-        /> */}
-
-        <InputOTP
-          maxLength={4}
-          value={value}
-          onChange={(value) => setValue(value)}
-        >
+        <InputOTP maxLength={4} value={otp} onChange={(value) => setotp(value)}>
           <InputOTPGroup className="otp-group flex flex-row gap-4 justify-center">
             <InputOTPSlot
               index={0}
@@ -73,7 +75,7 @@ const Verify = () => {
       <div className="flex flex-row justify-center">
         <button
           className="w-11/12 h-12 rounded-xl p-2 text-white bg-[#FF6C96] font-semibold text-sm leading-5  mt-6 mx-auto"
-          onClick={() => navigate("/")}
+          onClick={handleOtp}
         >
           Continue
         </button>

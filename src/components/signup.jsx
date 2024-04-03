@@ -1,7 +1,43 @@
 import React from "react";
 import { Phone, MailIcon, Name } from "../icons";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const SignUp = () => {
+  const [email, setemail] = React.useState("");
+  const [name, setname] = React.useState("");
+  const [phoneNumber, setphoneNumber] = React.useState("");
+  const navigate = useNavigate();
+  const role = "user";
+
+  const handleOtp = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        `http://13.126.70.159/api/v1/user/register`,
+        { name, phoneNumber, email, role },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      // Handle response if needed
+      console.log("Response:", response);
+
+      if (response.data.success == false) {
+        alert(response.data.message);
+      }
+
+      if (response.data.success == true) {
+        navigate("/verify", { state: phoneNumber });
+      }
+    } catch (error) {
+      // Handle error
+      console.error("Error:", error);
+    }
+  };
+
   return (
     <>
       <div className="mt-16 mx-4 mb-6">
@@ -18,6 +54,7 @@ const SignUp = () => {
               type="text"
               className="border w-full h-11 rounded-md pl-10 py-3 "
               placeholder="Name"
+              onChange={(value) => setname(value.target.value)}
             />
           </div>
 
@@ -27,6 +64,7 @@ const SignUp = () => {
               type="number"
               className="border w-full h-11 rounded-md pl-10 py-3"
               placeholder="Mobile"
+              onChange={(value) => setphoneNumber(value.target.value)}
             />
           </div>
 
@@ -36,13 +74,18 @@ const SignUp = () => {
               type="email"
               className="border w-full h-11 rounded-md pl-10 py-3 "
               placeholder="Email"
+              onChange={(value) => setemail(value.target.value)}
             />
           </div>
           <div id="verify" className="font-Poppins mt-10">
-          <input type="submit" className="w-[362px] h-12 rounded-xl p-2 text-white bg-[#FF6C96] font-semibold text-sm leading-5 mt-6" value="Verify mobile number"/>         
-        </div>
+            <input
+              type="submit"
+              className="w-[362px] h-12 rounded-xl p-2 text-white bg-[#FF6C96] font-semibold text-sm leading-5 mt-6"
+              value="Verify mobile number"
+              onClick={handleOtp}
+            />
+          </div>
         </form>
-        
 
         <div className="mt-[250px] font-Poppins px-11 ">
           <p className="font-normal text-sm leading-5 text-[#A2A2A2]">

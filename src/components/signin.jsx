@@ -5,13 +5,13 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function SignIn() {
-  const [mobile, setMobile] = React.useState("");
+  const [phoneNumber, setphoneNumber] = React.useState("");
   const navigate = useNavigate();
-  async function handleSignIn() {
+  async function handleOpt() {
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/user/send-login-otp",
-        { mobile },
+        `http://13.126.70.159/api/v1/user/send-login-otp`,
+        { phoneNumber },
         {
           headers: {
             "Content-Type": "application/json",
@@ -19,9 +19,13 @@ function SignIn() {
         }
       );
       // Handle response if needed
-      console.log("Response:", response.data);
-      if (response.data.status === "success") {
-        navigate("/SignIn");
+      console.log("Response:", response);
+      if (response.data.success == false) {
+        alert("please sigb up first");
+        navigate("/signup", { state: phoneNumber });
+      }
+      if (response.data.success == true) {
+        navigate("/verify", { state: phoneNumber });
       }
     } catch (error) {
       // Handle error
@@ -48,14 +52,18 @@ function SignIn() {
               type="number"
               className="border w-80 h-11 rounded-lg pl-10 py-3"
               placeholder="Mobile"
-              value={mobile}
-              onChange={(e) => setMobile(e.target.value)}
+              value={phoneNumber}
+              required
+              onChange={(e) => setphoneNumber(e.target.value)}
             />
           </div>
         </div>
 
         <div id="signIn" className=" flex flex-col font-Poppins gap-2">
-          <button className="w-80 h-12 rounded-xl p-2 text-white bg-[#FF6C96] font-semibold text-sm leading-5 mx-auto mt-6">
+          <button
+            className="w-80 h-12 rounded-xl p-2 text-white bg-[#FF6C96] font-semibold text-sm leading-5 mx-auto mt-6"
+            onClick={handleOpt}
+          >
             Sign in
           </button>
         </div>
