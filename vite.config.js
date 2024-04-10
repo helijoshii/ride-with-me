@@ -9,7 +9,11 @@ export default defineConfig({
     react(),
     qrcode(),
     VitePWA({
-      registerType: "autoUpdate",
+      // injectRegister: "auto",
+      // registerType: "autoUpdate",
+      // devOptions: {
+      //   enabled: true,
+      // },
       includeAssets: ["favicon.ico", "apple-touch-icon.png", "mask-icon.svg"],
       manifest: {
         name: "Ride with me",
