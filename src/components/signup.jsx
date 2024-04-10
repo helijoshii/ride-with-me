@@ -64,6 +64,7 @@ const SignUp = () => {
               type="number"
               className="border w-full h-11 rounded-md pl-10 py-3"
               placeholder="Mobile"
+              maxLength={10}
               onChange={(value) => setphoneNumber(value.target.value)}
             />
           </div>

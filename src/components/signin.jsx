@@ -49,10 +49,11 @@ function SignIn() {
           <div id="input" className="gap-2  flex flex-col items-center">
             <Phone className="w-4 h-4 absolute left-11 top-[327px]" />
             <input
-              type="number"
+              type="tel"
               className="border w-80 h-11 rounded-lg pl-10 py-3"
               placeholder="Mobile"
               value={phoneNumber}
+              maxLength={10}
               required
               onChange={(e) => setphoneNumber(e.target.value)}
             />

@@ -5,6 +5,9 @@ import SignIn from "./components/signin";
 import SignUp from "./components/signup";
 import Verify from "./components/verify";
 import Success from "./components/success";
+import Map from "./components/map";
+import Search from "./components/search";
+
 function App() {
   const [count, setCount] = useState(0);
 
@@ -12,7 +15,7 @@ function App() {
     <>
       {/* <h1 className='bg-orange-500'>Heli</h1> */}
 
-      <Outlet />
+      {/* <Outlet /> */}
       {/* <SignIn /> */}
       {/* <SignUp /> */}
       {/* <Verify /> */}
@@ -38,6 +41,10 @@ export const heli = createBrowserRouter([
   {
     path: "/success",
     element: <Success />,
+  },
+  {
+    path: "/map",
+    element: <Map />,
   },
 ]);
 
