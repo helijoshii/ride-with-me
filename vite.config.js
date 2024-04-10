@@ -14,17 +14,17 @@ export default defineConfig({
       // devOptions: {
       //   enabled: true,
       // },
-      includeAssets: ["favicon.ico", "apple-touch-icon.png", "mask-icon.svg"],
+      includeAssets: ["Vehicle.ico", "apple-touch-icon.png", "pwa-maskable-192x192.svg"],
       manifest: {
         name: "Ride with me",
         short_name: "Ride with me",
         theme_color: "#ffffff",
         icons: [
-          {
-            src: "pwa-64x64.png",
-            sizes: "64x64",
-            type: "image/png",
-          },
+          // {
+          //   src: "pwa-64x64.png",
+          //   sizes: "64x64",
+          //   type: "image/png",
+          // },
           {
             src: "pwa-192x192.png",
             sizes: "192x192",
@@ -36,12 +36,12 @@ export default defineConfig({
             type: "image/png",
             purpose: "any",
           },
-          {
-            src: "",
-            sizes: "512x512",
-            type: "image/png",
-            purpose: "maskable",
-          },
+          // {
+          //   src: "",
+          //   sizes: "512x512",
+          //   type: "image/png",
+          //   purpose: "maskable",
+          // },
         ],
       },
     }),

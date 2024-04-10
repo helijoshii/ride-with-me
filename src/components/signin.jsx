@@ -3,6 +3,16 @@ import sc from "../assets/scooter.svg";
 import { Phone } from "../icons";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "./drawer";
 
 function SignIn() {
   const [phoneNumber, setphoneNumber] = React.useState("");
@@ -69,6 +79,18 @@ function SignIn() {
           </button>
         </div>
       </div>
+      <Drawer>
+        <DrawerTrigger>Open</DrawerTrigger>
+        <DrawerContent>
+          <DrawerHeader>
+            <DrawerTitle>Are you absolutely sure?</DrawerTitle>
+            <DrawerDescription>This action cannot be undone.</DrawerDescription>
+          </DrawerHeader>
+          <DrawerFooter>
+            <DrawerClose>Cancel</DrawerClose>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
     </>
   );
 }
