@@ -44,7 +44,7 @@ export const heli = createBrowserRouter([
   },
   {
     path: "/map",
-    element: <Map />,
+    element: <Search />,
   },
 ]);
 

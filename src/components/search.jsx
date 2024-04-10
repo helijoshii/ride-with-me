@@ -1,13 +1,11 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import Map from "./map";
-import "../App.css";
-function Search() {
+function App() {
   const [pickUp, setPickup] = useState([]);
   const [drop, setDrop] = useState([]);
   const [inputpickup, setinputpickup] = useState("");
   const [inputdrop, setinputdrop] = useState("");
-
   useEffect(() => {
     getPickUp();
     getDropOff();
@@ -52,23 +50,26 @@ function Search() {
 
   return (
     <>
-      <Map pickUp={pickUp} drop={drop} /> {/* Render Map component here */}
       <div>
+        <Map pickUp={pickUp} drop={drop} />
         <input
           type="text"
           value={inputpickup}
           onChange={(e) => setinputpickup(e.target.value)}
+          className="border-2 border-black"
         />
         <input
           type="text"
           value={inputdrop}
           onChange={(e) => setinputdrop(e.target.value)}
+          className="border-2 border-black"
         />
         <button
           onClick={() => {
             getPickUp(inputpickup);
             getDropOff(inputdrop);
           }}
+          className="p-2 bg-blue-500 text-white"
         >
           Confirm
         </button>
@@ -87,6 +88,7 @@ function Search() {
               console.log("Geolocation is not supported by this browser.");
             }
           }}
+          className="p-2 bg-green-400 text-white"
         >
           Location
         </button>
@@ -95,4 +97,4 @@ function Search() {
   );
 }
 
-export default Search;
+export default App;
