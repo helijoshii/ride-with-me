@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Drawer as DrawerPrimitive } from "vaul";
-
 import { cn } from "@/lib/utils";
 
 const Drawer = ({ shouldScaleBackground = true, ...props }) => (
@@ -83,7 +82,7 @@ const DrawerDescription = React.forwardRef(({ className, ...props }, ref) => (
 ));
 DrawerDescription.displayName = DrawerPrimitive.Description.displayName;
 
-export { 
+export {
   Drawer,
   DrawerPortal,
   DrawerOverlay,

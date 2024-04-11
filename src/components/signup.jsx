@@ -2,6 +2,7 @@ import React from "react";
 import { Phone, MailIcon, Name } from "../icons";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { url } from "./api";
 
 const SignUp = () => {
   const [email, setemail] = React.useState("");
@@ -14,7 +15,7 @@ const SignUp = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `http://13.126.70.159/api/v1/user/register`,
+        `${url}api/v1/user/register`,
         { name, phoneNumber, email, role },
         {
           headers: {

@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import "../App.css";
 import mapboxgl from "mapbox-gl";
+import MapboxDirections from "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions";
 
 const Map = ({ pickUp, drop }) => {
   mapboxgl.accessToken =
@@ -21,6 +22,12 @@ const Map = ({ pickUp, drop }) => {
     if (drop) {
       addMarkers(map, drop);
     }
+
+    const directions = new MapboxDirections({
+      accessToken: mapboxgl.accessToken,
+    });
+
+    map.addControl(directions, "top-left");
 
     if (pickUp && drop) {
       map.fitBounds(

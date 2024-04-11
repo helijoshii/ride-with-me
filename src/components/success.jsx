@@ -1,8 +1,9 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 import { Close, Celebrate } from "../icons";
 
 const Success = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-white flex justify-center items-center h-screen">
       <div className="bg-[#EFEFEF]  w-80 h-80 rounded-lg ">
@@ -14,7 +15,10 @@ const Success = () => {
         </p>
         <div className="flex flex-col justify-center items-center">
           <Celebrate className="w-[86px] h-[86px] " />
-          <button className="w-36 h-12 rounded-xl p-2 text-white bg-[#FF6C96] font-semibold text-sm leading-5 mx-auto mt-6">
+          <button
+            className="w-36 h-12 rounded-xl p-2 text-white bg-[#FF6C96] font-semibold text-sm leading-5 mx-auto mt-6"
+            onClick={() => navigate("/map")}
+          >
             Let's ride
           </button>
         </div>
