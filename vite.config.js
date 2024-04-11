@@ -14,7 +14,11 @@ export default defineConfig({
       // devOptions: {
       //   enabled: true,
       // },
-      includeAssets: ["Vehicle.ico", "apple-touch-icon.png", "pwa-maskable-192x192.svg"],
+      includeAssets: [
+        "Vehicle.ico",
+        "apple-touch-icon.png",
+        "pwa-maskable-192x192.svg",
+      ],
       manifest: {
         name: "Ride with me",
         short_name: "Ride with me",

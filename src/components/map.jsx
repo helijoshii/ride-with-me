@@ -27,8 +27,6 @@ const Map = ({ pickUp, drop }) => {
       accessToken: mapboxgl.accessToken,
     });
 
-    map.addControl(directions, "top-left");
-
     if (pickUp && drop) {
       map.fitBounds(
         [
