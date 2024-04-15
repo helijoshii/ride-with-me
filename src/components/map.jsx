@@ -52,7 +52,7 @@ const Map = ({ pickUp, drop }) => {
 
   return (
     <>
-      <div id="map" style={{ width: "80vw", height: "80vh" }}></div>
+      <div id="map" style={{ width: "100%", height: "90vh" }}></div>
     </>
   );
 };

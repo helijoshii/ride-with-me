@@ -4,3 +4,7 @@ export { default as Password } from "./password";
 export { default as Name } from "./name";
 export { default as Close } from "./close";
 export { default as Celebrate } from "./celebrate";
+export { default as Currentloc } from "./currentloc";
+export { default as Rikshaw } from "./rikshaw";
+export { default as Bike } from "./bike";
+export { default as Car } from "./car";

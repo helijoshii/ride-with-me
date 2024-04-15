@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import Map from "./map";
 import { Drawer } from "vaul";
 import React from "react";
+import Vehicle from "./vehicle";
+import { Currentloc } from "@/icons";
 
 function App() {
   const [pickUp, setPickup] = useState([]);
@@ -10,6 +12,8 @@ function App() {
   const [inputpickup, setinputpickup] = useState("");
   const [inputdrop, setinputdrop] = useState("");
   const [isOpen, setIsOpen] = React.useState(false);
+  const [isList, setIsList] = React.useState(false);
+  var height = 30;
   useEffect(() => {
     getPickUp();
     getDropOff();
@@ -68,7 +72,7 @@ function App() {
           onChange={(e) => setinputdrop(e.target.value)}
           className="border-2 border-black"
         /> */}
-        <button
+        {/* <button
           onClick={() => {
             getPickUp(inputpickup);
             getDropOff(inputdrop);
@@ -76,7 +80,7 @@ function App() {
           className="p-2 bg-blue-500 text-white"
         >
           Confirm
-        </button>
+        </button> */}
 
         <button
           onClick={() => {
@@ -92,9 +96,10 @@ function App() {
               console.log("Geolocation is not supported by this browser.");
             }
           }}
-          className="p-2 bg-green-400 text-white"
+          className="p-2 bg-white"
         >
-          Location
+          {/* Location */}
+          <Currentloc />
         </button>
       </div>
       <Drawer.Root shouldScaleBackground>
@@ -105,7 +110,7 @@ function App() {
           <Drawer.Overlay className="fixed inset-0 bg-black/40" />
           <Drawer.Content
             className={`bg-zinc-100 flex flex-col rounded-t-[10px]  ${
-              isOpen ? "h-full" : "h-[15%]"
+              isOpen ? "h-full" : `h-[20%]`
             }  mt-24 fixed bottom-0 left-0 right-0`}
           >
             <div className="p-4 bg-white rounded-t-[10px] flex-1">
@@ -130,15 +135,20 @@ function App() {
                     required
                   />
                 </Drawer.Title>
-                <button
-                  className="w-80 h-12 rounded-xl p-2 text-white bg-[#FF6C96] font-semibold text-sm mt-[200px] leading-5 mx-auto"
-                  onClick={() => {
-                    getPickUp(inputpickup);
-                    getDropOff(inputdrop);
-                  }}
-                >
-                  Confirm location
-                </button>
+                {isList ? (
+                  <Vehicle />
+                ) : (
+                  <button
+                    className={`w-80 h-12 rounded-xl p-2 text-white bg-[#FF6C96] font-semibold text-sm mt-[200px] leading-5 mx-auto `}
+                    onClick={() => {
+                      getPickUp(inputpickup);
+                      getDropOff(inputdrop);
+                      setIsList(true);
+                    }}
+                  >
+                    Confirm location
+                  </button>
+                )}
               </div>
             </div>
           </Drawer.Content>
