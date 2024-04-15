@@ -118,13 +118,13 @@ function App() {
                 <Drawer.Title className="font-medium mb-4">
                   <input
                     type="text"
-                    className="border w-80 h-11 rounded-lg pl-5 pb-3 leading-5 text-sm mb-4 placeholder:font-poppins"
+                    className="border w-80 h-11 rounded-lg px-5 leading-5 text-sm mb-4 placeholder:font-poppins"
                     placeholder="Search destination"
                     required
                   />
                   <input
                     type="text"
-                    className="border w-80 h-11 rounded-lg pl-5 pb-3 leading-5 text-sm place-content-center placeholder:font-poppins"
+                    className="border w-80 h-11 rounded-lg px-5 leading-5 text-sm place-content-center placeholder:font-poppins"
                     placeholder="Current location"
                     value={inputpickup}
                     required
@@ -137,7 +137,7 @@ function App() {
                     getDropOff(inputdrop);
                   }}
                 >
-                  Confirnm location
+                  Confirm location
                 </button>
               </div>
             </div>

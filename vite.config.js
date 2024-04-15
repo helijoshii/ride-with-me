@@ -27,7 +27,7 @@ export default defineConfig({
           // {
           //   src: "pwa-64x64.png",
           //   sizes: "64x64",
-          //   type: "image/png",
+          //   type: "image/png",   
           // },
           {
             src: "pwa-192x192.png",

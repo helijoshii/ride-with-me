@@ -13,8 +13,9 @@ const Map = ({ pickUp, drop }) => {
       container: "map",
       style: "mapbox://styles/mapbox/streets-v12",
       center: [22.89083188056462, 72.27103319903652],
-      zoom: 5,
+      // zoom: 20,
     });
+
     if (pickUp) {
       addMarkers(map, pickUp);
     }
@@ -23,9 +24,14 @@ const Map = ({ pickUp, drop }) => {
       addMarkers(map, drop);
     }
 
+    // const directions = new MapboxDirections({
+    //   accessToken: mapboxgl.accessToken,
+    // });
     const directions = new MapboxDirections({
       accessToken: mapboxgl.accessToken,
     });
+
+    map.addControl(directions, "bottom-left");
 
     if (pickUp && drop) {
       map.fitBounds(
@@ -33,7 +39,7 @@ const Map = ({ pickUp, drop }) => {
           pickUp.length ? pickUp : [22.89083188056462, 72.27103319903652], // southwestern corner of the bounds
           drop.length ? drop : [23.0276, 72.5871], // southwestern corner of the bounds
         ],
-        { duration: 1 }
+        { duration: 1, zoom: 18 }
       );
     }
   }, [pickUp, drop]);
