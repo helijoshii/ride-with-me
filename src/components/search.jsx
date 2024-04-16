@@ -12,6 +12,7 @@ function App() {
   const [inputpickup, setinputpickup] = useState("");
   const [inputdrop, setinputdrop] = useState("");
   const [isOpen, setIsOpen] = React.useState(false);
+  const [initDrawerOpen, setInitDrawerOpen] = React.useState(true);
   const [isList, setIsList] = React.useState(false);
   var height = 30;
   useEffect(() => {
@@ -96,15 +97,16 @@ function App() {
               console.log("Geolocation is not supported by this browser.");
             }
           }}
-          className="p-2 bg-white"
+          className="p-2 bg-white absolute bottom-36 right-10 z-50"
         >
           {/* Location */}
           <Currentloc />
         </button>
       </div>
-      <Drawer.Root shouldScaleBackground>
+      <Drawer.Root open={initDrawerOpen} shouldScaleBackground modal={false}>
         <Drawer.Trigger asChild>
-          <button>Open Drawer</button>
+          <div></div>
+          {/* <button>Open Drawer</button> */}
         </Drawer.Trigger>
         <Drawer.Portal>
           <Drawer.Overlay className="fixed inset-0 bg-black/40" />

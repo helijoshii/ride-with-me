@@ -88,3 +88,7 @@ html, body {
 .read-the-docs {
   color: #888;
 }
+
+[vaul-overlay][vaul-snap-points-overlay=true]:not([vaul-drawer-visible="false"]) {
+  background: transparent !important;
+}
