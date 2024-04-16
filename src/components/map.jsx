@@ -13,7 +13,6 @@ const Map = ({ pickUp, drop }) => {
       container: "map",
       style: "mapbox://styles/mapbox/streets-v12",
       center: [22.89083188056462, 72.27103319903652],
-      // zoom: 20,
     });
 
     if (pickUp) {

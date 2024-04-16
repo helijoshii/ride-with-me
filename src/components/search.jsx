@@ -5,7 +5,7 @@ import { Drawer } from "vaul";
 import React from "react";
 import Vehicle from "./vehicle";
 import { Currentloc } from "@/icons";
-
+import * as turf from "@turf/turf";
 function App() {
   const [pickUp, setPickup] = useState([]);
   const [drop, setDrop] = useState([]);
@@ -14,11 +14,28 @@ function App() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [initDrawerOpen, setInitDrawerOpen] = React.useState(true);
   const [isList, setIsList] = React.useState(false);
-  var height = 30;
+
   useEffect(() => {
     getPickUp();
     getDropOff();
   }, []);
+
+  var from = turf.point([
+    pickUp.length ? pickUp[0] : -75.343,
+    pickUp.length ? pickUp[1] : 39.984,
+  ]);
+  var to = turf.point([
+    drop.length ? drop[0] : -75.343,
+    drop.length ? drop[1] : 39.984,
+  ]);
+  var options = { units: "kilometers" };
+  var distance = turf.distance(from, to, options);
+  console.log("dis", distance);
+
+  
+
+
+
 
   async function getPickUp(codinates) {
     const data = await fetch(
@@ -117,7 +134,7 @@ function App() {
                   />
                 </Drawer.Title>
                 {isList ? (
-                  <Vehicle />
+                  <Vehicle distance={distance}/>
                 ) : (
                   <button
                     className={`w-80 h-12 rounded-xl p-2 text-white bg-[#FF6C96] font-semibold text-sm mt-[200px] leading-5 mx-auto `}
