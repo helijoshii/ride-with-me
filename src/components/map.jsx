@@ -24,9 +24,6 @@ const Map = ({ pickUp, drop }) => {
       addMarkers(map, drop);
     }
 
-    // const directions = new MapboxDirections({
-    //   accessToken: mapboxgl.accessToken,
-    // });
     const directions = new MapboxDirections({
       accessToken: mapboxgl.accessToken,
     });

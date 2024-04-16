@@ -61,27 +61,6 @@ function App() {
     <>
       <div>
         <Map pickUp={pickUp} drop={drop} />
-        {/* <input
-          type="text"
-          value={inputpickup}
-          onChange={(e) => setinputpickup(e.target.value)}
-          className="border-2 border-black"
-        />
-        <input
-          type="text"
-          value={inputdrop}
-          onChange={(e) => setinputdrop(e.target.value)}
-          className="border-2 border-black"
-        /> */}
-        {/* <button
-          onClick={() => {
-            getPickUp(inputpickup);
-            getDropOff(inputdrop);
-          }}
-          className="p-2 bg-blue-500 text-white"
-        >
-          Confirm
-        </button> */}
 
         <button
           onClick={() => {
