@@ -32,11 +32,6 @@ function App() {
   var distance = turf.distance(from, to, options);
   console.log("dis", distance);
 
-  
-
-
-
-
   async function getPickUp(codinates) {
     const data = await fetch(
       `https://api.mapbox.com/geocoding/v5/mapbox.places/${codinates}.json?` +
@@ -82,16 +77,27 @@ function App() {
         <button
           onClick={() => {
             if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(function (position) {
-                const latitude = position.coords.latitude;
-                const longitude = position.coords.longitude;
-                setPickup([longitude, latitude]);
-                setDrop([longitude, latitude]);
-                getLoc(longitude, latitude);
-              });
-            } else {
-              console.log("Geolocation is not supported by this browser.");
-            }
+              navigator.geolocation.getCurrentPosition((position) => {
+              console.log("clicked",navigator.geolocation);
+                  alert(
+                    `${position.coords.longitude} - ${position.coords.latitude}`
+                  );
+                });
+              } else {
+                alert("Geolocation denied");
+              }
+           
+            // if (navigator.geolocation) {
+            //   navigator.geolocation.getCurrentPosition(function (position) {
+            //     const latitude = position.coords.latitude;
+            //     const longitude = position.coords.longitude;
+            //     setPickup([longitude, latitude]);
+            //     setDrop([longitude, latitude]);
+            //     getLoc(longitude, latitude);
+            //   });
+            // } else {
+            //   console.log("Geolocation is not supported by this browser.");
+            // }
           }}
           className="p-2 bg-white absolute bottom-36 right-10 z-50"
         >
@@ -134,7 +140,7 @@ function App() {
                   />
                 </Drawer.Title>
                 {isList ? (
-                  <Vehicle distance={distance}/>
+                  <Vehicle distance={distance} />
                 ) : (
                   <button
                     className={`w-80 h-12 rounded-xl p-2 text-white bg-[#FF6C96] font-semibold text-sm mt-[200px] leading-5 mx-auto `}
