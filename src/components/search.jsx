@@ -76,28 +76,28 @@ function App() {
 
         <button
           onClick={() => {
-            if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition((position) => {
-              console.log("clicked",navigator.geolocation);
-                  alert(
-                    `${position.coords.longitude} - ${position.coords.latitude}`
-                  );
-                });
-              } else {
-                alert("Geolocation denied");
-              }
-           
             // if (navigator.geolocation) {
-            //   navigator.geolocation.getCurrentPosition(function (position) {
-            //     const latitude = position.coords.latitude;
-            //     const longitude = position.coords.longitude;
-            //     setPickup([longitude, latitude]);
-            //     setDrop([longitude, latitude]);
-            //     getLoc(longitude, latitude);
-            //   });
-            // } else {
-            //   console.log("Geolocation is not supported by this browser.");
-            // }
+            //   navigator.geolocation.getCurrentPosition((position) => {
+            //   console.log("clicked",navigator.geolocation);
+            //       alert(
+            //         `${position.coords.longitude} - ${position.coords.latitude}`
+            //       );
+            //     });
+            //   } else {
+            //     alert("Geolocation denied");
+            //   }
+           
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(function (position) {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+                setPickup([longitude, latitude]);
+                setDrop([longitude, latitude]);
+                getLoc(longitude, latitude);
+              });
+            } else {
+              console.log("Geolocation is not supported by this browser.");
+            }
           }}
           className="p-2 bg-white absolute bottom-36 right-10 z-50"
         >
