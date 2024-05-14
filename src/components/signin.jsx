@@ -8,6 +8,7 @@ import { Drawer } from "vaul";
 import FetchDetails from "./FetchDetails";
 import RiderDetails from "./RiderDetails";
 import ProfilePage from "./Profile/profile";
+import PaymentDetails from "./Payment/paymentDetails";
 
 function SignIn() {
   const [phoneNumber, setphoneNumber] = React.useState("");
@@ -119,7 +120,8 @@ function SignIn() {
 
       {/* <FetchDetails /> */}
       {/* <RiderDetails /> */}
-      <ProfilePage />
+      {/* <ProfilePage /> */}
+      <PaymentDetails />
     </>
   );
 }

@@ -1,17 +1,21 @@
 import React from "react";
 import { Rikshaw, Location, Verticleline, Driver, Phone } from "@/icons";
-import OtpInput from "react-otp-input";
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
+import PaymentMode from "./paymentMode";
 import Drawer from "react-modern-drawer";
 
 import "react-modern-drawer/dist/index.css";
 
-const RiderDetails = () => {
-  const [otp, setOtp] = useState("");
+const PaymentDetails = () => {
   const [isOpen, setIsOpen] = React.useState(false);
+  const navigate = useNavigate();
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
+  };
+
+  const paymode = () => {
+    navigate("paymode");
   };
 
   return (
@@ -56,31 +60,7 @@ const RiderDetails = () => {
           </div>
 
           <hr />
-          <div className="mt-7 flex flex-row justify-between">
-            <div className="mb-4">
-              <p className="font-medium text-sm mb-1">PIN for this ride</p>
-              <OtpInput
-                value={otp}
-                onChange={setOtp}
-                numInputs={4}
-                renderSeparator={<span> &nbsp; </span>}
-                inputStyle="bg-[#BCBBE8] rounded px-1 py-1 h-7 w-14 "
-                inputType="number"
-                renderInput={(props) => (
-                  <input
-                    {...props}
-                    style={{
-                      width: "35px",
-                      height: "35px",
-                      alignItems: "center",
-                    }}
-                  />
-                )}
-              />
-            </div>
-
-            <Rikshaw className="pr-4 h-[72px] w-[72px] -mt-5 " />
-          </div>
+          
 
           <hr />
 
@@ -104,8 +84,8 @@ const RiderDetails = () => {
             </div>
           </div>
 
-          <button className="w-[330px] h-12 rounded-xl p-2 text-white bg-[#FF6C96] font-semibold text-sm leading-5 mx-auto mt-5">
-            Cancel ride
+          <button className="w-full h-12 items-center rounded-xl p-2 text-white bg-[#FF6C96] font-semibold text-sm leading-5 mx-auto mt-[120px]" onClick={paymode}>
+            Pay
           </button>
         </div>
       </Drawer>
@@ -113,4 +93,4 @@ const RiderDetails = () => {
   );
 };
 
-export default RiderDetails
+export default PaymentDetails;

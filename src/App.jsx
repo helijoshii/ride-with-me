@@ -8,6 +8,9 @@ import Success from "./components/success";
 import Map from "./components/map";
 import ConfirmVehicle from "./components/confirmVehicle";
 import Search from "./components/search";
+import EditProfile from "./components/Profile/editProfile";
+import PaymentMode from "./components/Payment/paymentMode";
+import PaymentDetails from "./components/Payment/paymentDetails";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -51,6 +54,18 @@ export const heli = createBrowserRouter([
     path: "/confirmVehicle",
     element: <ConfirmVehicle />,
   },
+  {
+    path: "/edit",
+    element: <EditProfile />,
+  },
+  {
+    path: "/paymode",
+    element: <PaymentMode />,
+  },
+  {
+    path: "/paymentDetails",
+    element: <PaymentDetails />,
+  }
 ]);
 
 export default App;

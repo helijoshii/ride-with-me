@@ -16,3 +16,6 @@ export { default as Info } from "./info";
 export { default as Help } from "./help";
 export { default as Logout } from "./logout";
 export { default as ProfileIcon } from "./profileIcon";
+export { default as DisplayPhoto } from "./displayPhoto";
+export { default as Camera } from "./camera";
+export { default as DisplayEdit } from "./displayEdit";
