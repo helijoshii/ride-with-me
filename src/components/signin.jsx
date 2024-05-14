@@ -5,6 +5,9 @@ import axios from "axios";
 import { url } from "./api";
 import { useNavigate } from "react-router-dom";
 import { Drawer } from "vaul";
+import FetchDetails from "./FetchDetails";
+import RiderDetails from "./RiderDetails";
+import Profile from "./Profile/profile";
 
 function SignIn() {
   const [phoneNumber, setphoneNumber] = React.useState("");
@@ -45,7 +48,7 @@ function SignIn() {
         </div>
         <div id="Welcome-text" className="mb-9 w-[330px] h-9">
           <h1 className="leading-9 text-2xl font-semibold font-Poppins text-center">
-            Welcome to Easy Go!
+            Welcome to EasyGo!
           </h1>
         </div>
 
@@ -73,9 +76,9 @@ function SignIn() {
           </button>
         </div>
       </div>
-      {/* <profile /> */}
+      <profile />
 
-      <Drawer.Root direction="left">
+      {/* <Drawer.Root direction="left">
         <Drawer.Trigger asChild>
           <button>Open Drawer</button>
         </Drawer.Trigger>
@@ -113,7 +116,11 @@ function SignIn() {
             </div>
           </Drawer.Content>
         </Drawer.Portal>
-      </Drawer.Root>
+      </Drawer.Root> */}
+
+      {/* <FetchDetails /> */}
+      {/* <RiderDetails /> */}
+      <Profile />
     </>
   );
 }

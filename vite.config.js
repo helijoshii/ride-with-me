@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { VitePWA } from "vite-plugin-pwa";
+import { VitePWA } from "vite-plugin-pwa"; 
 import { qrcode } from "vite-plugin-qrcode";
 import path from "path";
 

@@ -6,6 +6,7 @@ import SignUp from "./components/signup";
 import Verify from "./components/verify";
 import Success from "./components/success";
 import Map from "./components/map";
+import ConfirmVehicle from "./components/confirmVehicle";
 import Search from "./components/search";
 
 function App() {
@@ -46,10 +47,11 @@ export const heli = createBrowserRouter([
     path: "/map",
     element: <Search />,
   },
-  // {
-  //   path: "/drawer",
-  //   element: <Drawer />,
-  // },
+  {
+    path: "/confirmVehicle",
+    element: <ConfirmVehicle />,
+  },
+
 ]);
 
 export default App;

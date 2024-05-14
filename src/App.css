@@ -92,3 +92,61 @@ html, body {
 [vaul-overlay][vaul-snap-points-overlay=true]:not([vaul-drawer-visible="false"]) {
   background: transparent !important;
 }
+:root {
+  --green: #b8d953;
+  --lilac: #b2b2eb;
+  --pink: #bb86e9;
+  --dark-green: #529a91;
+  --peach: #fe96b7;
+  --pink: #FF6C96;
+  --black: #191819;
+  --grey: #C0C0C0;
+  --white: #d9d9d9;
+}
+
+
+.progress-bar {
+  position: relative;
+  height: 5px;
+  width: 98px;
+  background: var(--grey);
+  border-radius: 25px;
+}
+
+.progress-fill {
+  position: absolute;
+  height: 4px;
+  width: 0%;
+  animation: progress-forward 3s infinite;
+  background: #FF6C96;
+  border-radius: 15px;
+}
+
+.progress-bar:nth-child(1) .progress-fill {
+  animation-delay: 0s; /* No delay for the first progress bar */
+}
+  
+.progress-bar:nth-child(2) .progress-fill {
+  animation-delay: 6s; /* 1 second delay for the second progress bar */
+}
+
+.progress-bar:nth-child(3) .progress-fill {
+  animation-delay: 2s; /* 2 second delay for the third progress bar */
+}
+@keyframes progress-forward {
+  0% {
+    width: 0%;
+  }
+  25% {
+    width: 50%;
+  }
+  50% {
+    width: 75%;
+  }
+  75% {
+    width: 85%;
+  }
+  100% {
+    width: 100%;
+  }
+} ;

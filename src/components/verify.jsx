@@ -58,19 +58,27 @@ const Verify = () => {
           <InputOTPGroup className="otp-group flex flex-row gap-4 justify-center">
             <InputOTPSlot
               index={0}
-              className="w-[70px] h-[72px] font-Poppins text-5xl leading-[72px] rounded-lg px-2 py-0 border border-[#9E9E9E]"
+              className={`w-[70px] h-[72px] font-Poppins text-5xl leading-[72px] rounded-lg px-2 py-0 border border-[#9E9E9E]  ${
+                otp.length > 0 ? "border-[#FF6C96]" : ""
+              }`}
             />
             <InputOTPSlot
               index={1}
-              className="w-[70px] h-[72px] font-Poppins text-5xl leading-[72px] rounded-lg px-2 py-0 border border-[#9E9E9E]"
+              className={`w-[70px] h-[72px] font-Poppins text-5xl leading-[72px] rounded-lg px-2 py-0 border border-[#9E9E9E]  ${
+                otp.length > 1 ? "border-[#FF6C96]" : ""
+              }`}
             />
             <InputOTPSlot
               index={2}
-              className="w-[70px] h-[72px] font-Poppins text-5xl leading-[72px] rounded-lg px-2 py-0 border border-[#9E9E9E]"
+              className={`w-[70px] h-[72px] font-Poppins text-5xl leading-[72px] rounded-lg px-2 py-0 border border-[#9E9E9E]  ${
+                otp.length > 2 ? "border-[#FF6C96]" : ""
+              }`}
             />
             <InputOTPSlot
               index={3}
-              className="w-[70px] h-[72px] font-Poppins text-5xl leading-[72px] rounded-lg px-2 py-0 border border-[#9E9E9E]"
+              className={`w-[70px] h-[72px] font-Poppins text-5xl leading-[72px] rounded-lg px-2 py-0 border border-[#9E9E9E]  ${
+                otp.length > 3 ? "border-[#FF6C96]" : ""
+              }`}
             />
           </InputOTPGroup>
         </InputOTP>

@@ -76,17 +76,6 @@ function App() {
 
         <button
           onClick={() => {
-            // if (navigator.geolocation) {
-            //   navigator.geolocation.getCurrentPosition((position) => {
-            //   console.log("clicked",navigator.geolocation);
-            //       alert(
-            //         `${position.coords.longitude} - ${position.coords.latitude}`
-            //       );
-            //     });
-            //   } else {
-            //     alert("Geolocation denied");
-            //   }
-           
             if (navigator.geolocation) {
               navigator.geolocation.getCurrentPosition(function (position) {
                 const latitude = position.coords.latitude;

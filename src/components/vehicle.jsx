@@ -26,6 +26,7 @@ const Vehicle = ({ distance }) => {
     const formattedPrice = price.toFixed(2);
     return formattedPrice;
   }
+  function bookVehicle() {}
 
   return (
     <>
