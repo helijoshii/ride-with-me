@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { Drawer } from "vaul";
 import FetchDetails from "./FetchDetails";
 import RiderDetails from "./RiderDetails";
-import Profile from "./Profile/profile";
+import ProfilePage from "./Profile/profile";
 
 function SignIn() {
   const [phoneNumber, setphoneNumber] = React.useState("");
@@ -76,7 +76,6 @@ function SignIn() {
           </button>
         </div>
       </div>
-      <profile />
 
       {/* <Drawer.Root direction="left">
         <Drawer.Trigger asChild>
@@ -120,7 +119,7 @@ function SignIn() {
 
       {/* <FetchDetails /> */}
       {/* <RiderDetails /> */}
-      <Profile />
+      <ProfilePage />
     </>
   );
 }

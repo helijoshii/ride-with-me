@@ -14,7 +14,7 @@ function App() {
 
   return (
     <>
-      {/* <h1 className='bg-orange-500'>Heli</h1> */}
+      {/* <h1 className="bg-orange-500">Heli</h1> */}
 
       {/* <Outlet /> */}
       {/* <SignIn /> */}
@@ -51,7 +51,6 @@ export const heli = createBrowserRouter([
     path: "/confirmVehicle",
     element: <ConfirmVehicle />,
   },
-
 ]);
 
 export default App;

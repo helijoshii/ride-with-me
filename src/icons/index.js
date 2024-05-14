@@ -12,3 +12,7 @@ export { default as Location } from "./location";
 export { default as Verticleline } from "./verticleline";
 export { default as Driver } from "./driver";
 export { default as Backarrow } from "./backarrow";
+export { default as Info } from "./info";
+export { default as Help } from "./help";
+export { default as Logout } from "./logout";
+export { default as ProfileIcon } from "./profileIcon";
