@@ -1,5 +1,8 @@
 import React from "react";
 import { Rikshaw, Bike, Car } from "@/icons";
+import { useNavigate } from "react-router-dom";
+
+
 const Vehicle = ({ distance }) => {
   function bikeprice() {
     const distanceNumber = parseFloat(distance);
@@ -26,7 +29,11 @@ const Vehicle = ({ distance }) => {
     const formattedPrice = price.toFixed(2);
     return formattedPrice;
   }
-  function bookVehicle() {}
+
+  const navigate = useNavigate();
+  const FetchDetails = () => {
+    navigate("/fetchDetails");
+  };
 
   return (
     <>
@@ -85,7 +92,7 @@ const Vehicle = ({ distance }) => {
           </div>
         </div>
       </div>
-      <button className="w-80 h-12 rounded-xl p-2 text-white bg-[#FF6C96] font-semibold text-sm mt-[430px] leading-5 mx-auto">
+      <button className="w-full h-12 rounded-xl p-2 text-white bg-[#FF6C96] font-semibold text-sm mt-[430px] leading-5 mx-auto"  onClick={FetchDetails}>
         Book auto
       </button>
     </>

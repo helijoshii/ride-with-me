@@ -11,10 +11,11 @@ import Search from "./components/search";
 import EditProfile from "./components/Profile/editProfile";
 import PaymentMode from "./components/Payment/paymentMode";
 import PaymentDetails from "./components/Payment/paymentDetails";
+import FetchDetails from "./components/FetchDetails";
+import RiderDetails from "./components/RiderDetails";
+import ProfilePage from "./components/Profile/profile";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
       {/* <h1 className="bg-orange-500">Heli</h1> */}
@@ -55,6 +56,10 @@ export const heli = createBrowserRouter([
     element: <ConfirmVehicle />,
   },
   {
+    path: "/profile",
+    element: <ProfilePage />,
+  },
+  {
     path: "/edit",
     element: <EditProfile />,
   },
@@ -65,7 +70,16 @@ export const heli = createBrowserRouter([
   {
     path: "/paymentDetails",
     element: <PaymentDetails />,
-  }
+  },
+  {
+    path: "/fetchdetails",
+    element: <FetchDetails />,
+  },
+  {
+    path: "/riderdetails",
+    element: <RiderDetails />,
+  },
+
 ]);
 
 export default App;

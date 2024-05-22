@@ -7,12 +7,21 @@ import {
   Phone,
 } from "@/icons";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const EditProfile = () => {
+
+
+  const navigate = useNavigate();
+  const ProfilePage = () => {
+    // navigate("/profile");
+    navigate(-1);
+  };
+
   return (
     <div>
       <div className="mt-6 flex gap-5 ">
-        <Backarrow className="ml-5" />
+        <Backarrow className="ml-5"   onClick={ProfilePage} />
         <p className="font-semibold text-xl leading-5">Edit Profile</p>
       </div>
 
@@ -41,13 +50,13 @@ const EditProfile = () => {
             />
 
             {/* <Phone /> */}
-            {/* <input
+            <input
               type="tel"
               className="border w-[328px] h-[48px] rounded-lg pl-5 py-3"
               placeholder="Phone"
               maxLength={10}
               required
-            /> */}
+            />
 
             <button className="w-80 h-12 rounded-xl p-2 text-white bg-[#FF6C96] font-semibold text-sm leading-5 mx-auto mt-10">
               Save

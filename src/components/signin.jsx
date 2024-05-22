@@ -18,7 +18,7 @@ function SignIn() {
   async function handleOpt() {
     try {
       const response = await axios.post(
-        `${url}api/v1/user/send-login-otp`,
+        `${url}user/send-login-otp`,
         { phoneNumber },
         {
           headers: {
@@ -121,7 +121,7 @@ function SignIn() {
       {/* <FetchDetails /> */}
       {/* <RiderDetails /> */}
       {/* <ProfilePage /> */}
-      <PaymentDetails />
+      {/* <PaymentDetails /> */}
     </>
   );
 }

@@ -8,14 +8,14 @@ import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 
 const PaymentDetails = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(true);
   const navigate = useNavigate();
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
   };
 
   const paymode = () => {
-    navigate("paymode");
+    navigate("/paymode");
   };
 
   return (

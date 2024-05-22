@@ -2,16 +2,21 @@ import React from "react";
 import { Rikshaw, Location, Verticleline, Driver, Phone } from "@/icons";
 import OtpInput from "react-otp-input";
 import { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import Drawer from "react-modern-drawer";
 
 import "react-modern-drawer/dist/index.css";
+import PaymentDetails from "./Payment/paymentDetails";
 
 const RiderDetails = () => {
   const [otp, setOtp] = useState("");
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(true);
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
+  };
+  const navigate = useNavigate();
+  const PaymentDetails = () => {
+    navigate("/paymentdetails");
   };
 
   return (
@@ -104,7 +109,7 @@ const RiderDetails = () => {
             </div>
           </div>
 
-          <button className="w-[330px] h-12 rounded-xl p-2 text-white bg-[#FF6C96] font-semibold text-sm leading-5 mx-auto mt-5">
+          <button className="w-full h-12 rounded-xl p-2 text-white bg-[#FF6C96] font-semibold text-sm leading-5 mx-auto mt-5"  onClick={PaymentDetails}>
             Cancel ride
           </button>
         </div>

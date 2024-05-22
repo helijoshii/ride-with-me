@@ -1,12 +1,11 @@
 import {
   Backarrow,
-  Camera,
-  DisplayPhoto,
   Help,
   Info,
   Logout,
   Name,
   ProfileIcon,
+  ProfileHam,
 } from "@/icons";
 import React from "react";
 import Drawer from "react-modern-drawer";
@@ -18,17 +17,24 @@ const ProfilePage = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const navigate = useNavigate();
 
+  // Get the name from local storage
+  const cus_name = localStorage.getItem("name");
+
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
   };
 
   const edit = () => {
-    navigate("edit");
+    navigate("/edit");
   };
 
   return (
     <>
-      <button onClick={toggleDrawer}>Show</button>
+      <div className="flex pl-3 pt-3 absolute z-10">
+        <button onClick={toggleDrawer}>
+          <ProfileHam />
+        </button>
+      </div>
       <Drawer
         open={isOpen}
         onClose={toggleDrawer}
@@ -42,13 +48,18 @@ const ProfilePage = () => {
             htmlFor="filee"
             className="w-16 h-16 bg-white mt-9 cursor-pointer"
           >
-            <DisplayPhoto className="h-full w-full" />
-            <Camera className="absolute top-[123px] left-14 h-6 w-6" />
+            <div className="h-16 w-16 bg-red-400 rounded-full flex justify-center items-center">
+              <h2 className="text-white font-semibold text-2xl leading-6">
+                {cus_name ? cus_name.charAt(0) : "heli"}
+              </h2>
+            </div>
+            {/* <DisplayPhoto className="h-full w-full" /> */}
+            {/* <Camera className="absolute top-[123px] left-14 h-6 w-6" /> */}
           </label>
-          <input id="filee" type="file" className="w-16 h-16 hidden" />
+          {/* <input id="filee" type="file" className="w-16 h-16 hidden" /> */}
 
-          <div className="font-medium text-[#414141] mt-7 text-left">
-            <p className="text-lg leading-6">Anne Blake</p>
+          <div className="font-medium text-[#414141] mt-5 text-left">
+            <p className="text-lg leading-6">{cus_name ? cus_name : "User"}</p>
             {/* <p className="text-xs leading-[18px]">abc@gmail.com</p> */}
           </div>
 

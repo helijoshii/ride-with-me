@@ -1,16 +1,19 @@
 import React from "react";
 import { Rikshaw, Location, Verticleline } from "@/icons";
-
-// import component 👇
+import Profile from "./Profile/profile";
 import Drawer from "react-modern-drawer";
-
-//import styles 👇
 import "react-modern-drawer/dist/index.css";
+import ProfilePage from "./Profile/profile";
+import { useNavigate } from "react-router-dom";
 
 const FetchDetails = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(true);
   const toggleDrawer = () => {
     setIsOpen((prevState) => !prevState);
+  };
+  const navigate = useNavigate();
+  const RiderDetails = () => {
+    navigate("/riderdetails");
   };
 
   return (
@@ -71,8 +74,10 @@ const FetchDetails = () => {
               </p>
             </div>
           </div>
+          <button className="bg-slate-400 flex justify-end absolute bottom-4 right-4" onClick={RiderDetails}>Next</button>
         </div>
       </Drawer>
+      <ProfilePage />
     </>
   );
 };

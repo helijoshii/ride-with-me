@@ -19,3 +19,4 @@ export { default as ProfileIcon } from "./profileIcon";
 export { default as DisplayPhoto } from "./displayPhoto";
 export { default as Camera } from "./camera";
 export { default as DisplayEdit } from "./displayEdit";
+export { default as ProfileHam } from "./ProfileHam";

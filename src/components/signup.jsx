@@ -15,7 +15,7 @@ const SignUp = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${url}api/v1/user/register`,
+        `${url}user/register`,
         { name, phoneNumber, email, role },
         {
           headers: {
@@ -30,7 +30,8 @@ const SignUp = () => {
         alert(response.data.message);
       }
 
-      if (response.data.success == true) {
+      if (response.status == 201) {
+        localStorage.setItem("name", name);
         navigate("/verify", { state: phoneNumber });
       }
     } catch (error) {

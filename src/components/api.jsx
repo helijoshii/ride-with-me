@@ -1,1 +1,1 @@
-export const url = `http://3.6.241.63/`;
+export const url = `https://api.easy-go.tech/api/v1/`;

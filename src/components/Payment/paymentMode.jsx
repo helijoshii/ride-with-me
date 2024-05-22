@@ -1,11 +1,20 @@
 import { Backarrow, DisplayEdit } from "@/icons";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const PaymentMode = () => {
+
+  const navigate = useNavigate();
+  const PaymentDetails = () => {
+    // navigate("/paymentdetails");
+    navigate(-1);
+  };
+
+
   return (
     <div className="mx-3">
       <div className="mt-4 flex gap-6">
-        <Backarrow className="mt-2 ml-2" />
+        <Backarrow className="mt-2 ml-2"   onClick={PaymentDetails} />
         <p className="font-semibold text-xl leading-7">Payment Information</p>
       </div>
       <div className="mt-11 flex justify-center">

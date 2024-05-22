@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import "../App.css";
 import mapboxgl from "mapbox-gl";
 import MapboxDirections from "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions";
-
+import ProfilePage from "./Profile/profile";
 const Map = ({ pickUp, drop }) => {
   mapboxgl.accessToken =
     "pk.eyJ1IjoibWF5YW5rLTAiLCJhIjoiY2x1MmhweHRmMHRnZTJtcGRvZXd1dzdxaCJ9.Jv2qrYH63lMJsb_JNvixzA";
@@ -46,6 +46,7 @@ const Map = ({ pickUp, drop }) => {
 
   return (
     <>
+      <ProfilePage />
       <div id="map" style={{ width: "100%", height: "90vh" }}></div>
     </>
   );

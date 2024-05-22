@@ -2,6 +2,7 @@ import React from "react";
 import { Drawer } from "vaul";
 
 const ConfirmVehicle = () => {
+
   return (
     <>
       <Drawer.Root
@@ -49,6 +50,7 @@ const ConfirmVehicle = () => {
                       getPickUp(inputpickup);
                       getDropOff(inputdrop);
                       setIsList(true);
+                      
                     }}
                   >
                     Confirm location
